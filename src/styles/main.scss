@@ -1,6 +1,8 @@
 $day-bg: #eee;
 $day-size: 100px;
-$border: 1px black;
+$border-width: 1px;
+$border-style: solid;
+$border-color: black;
 $gap: 1px;
 $columns: 7;
 $padding: 10px;
@@ -25,16 +27,17 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: $gap;
+  padding: $padding;
 
   counter-reset: day;
-  max-width: $max-width;
+  max-width: $max-width + 2 * $padding;
   margin: auto;
 
   &__day {
     width: $day-size;
     height: $day-size;
     background-color: $day-bg;
-    border: $border solid;
+    border: $border-width $border-style $border-color;
     position: relative;
 
     display: flex;
