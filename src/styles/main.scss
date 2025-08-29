@@ -51,14 +51,9 @@ body {
       5s;
 
     &:hover {
-      background: $highlight-color;
+      background-color: $highlight-color;
       cursor: pointer;
       transform: translateY(-20px);
-      transition:
-        background-color 0,
-        5s,
-        transform 0,
-        5s;
     }
 
     &::before {
@@ -70,15 +65,19 @@ body {
   }
 
   @for $i from 28 through 31 {
-    &--month-length-#{$i} .calendar__day:nth-child(n + #{$i + 1}) {
-      display: none;
+    &--month-length-#{$i} {
+      .calendar__day:nth-child(n + #{$i + 1}) {
+        display: none;
+      }
     }
   }
 
   @each $day, $index in (mon: 0, tue: 1, wed: 2, thu: 3, fri: 4, sat: 5, sun: 6)
   {
-    &--start-day-#{$day} .calendar__day:first-child {
-      margin-left: calc((#{$day-size} + #{$gap}) * #{$index});
+    &--start-day-#{$day} {
+      .calendar__day:first-child {
+        margin-left: calc((#{$day-size} + #{$gap}) * #{$index});
+      }
     }
   }
 }
